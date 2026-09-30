@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuizFragment">
+    android:background="#FFFFFF"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="28dp">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:contentDescription="Ilustrasi quiz belum tersedia"
+        android:scaleType="fitCenter"
+        android:src="@drawable/quiz_empty" />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Quiz fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Belum ada quiz di kelas ini"
+        android:textColor="#202124"
+        android:textSize="21sp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="Quiz belum dilaksanakan. Sambil menunggu, kamu bisa mempelajari kembali materi yang sudah tersedia."
+        android:textColor="#5F6368"
+        android:textSize="15sp" />
+
+</LinearLayout>

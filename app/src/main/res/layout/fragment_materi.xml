@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MateriFragment">
+    android:background="#FFFFFF"
+    android:fillViewport="true">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Materi Fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="20dp">
 
-</FrameLayout>
+        <!-- Banner kelas -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/bg_class_banner"
+            android:clipToOutline="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Banner kelas praktikum"
+                android:scaleType="centerCrop"
+                android:src="@drawable/course_banner" />
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:padding="16dp"
+                android:text="Praktikum Pemrograman Perangkat Bergerak Dasar"
+                android:textColor="#FFFFFF"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <!-- Bilah di bawah banner -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_pengumuman"
+            android:gravity="center"
+            android:padding="13dp"
+            android:text="✎   Pengumuman baru"
+            android:textColor="#075477"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!-- Kartu materi ditambahkan di sini oleh MateriFragment.kt -->
+        <LinearLayout
+            android:id="@+id/materiContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+</ScrollView>

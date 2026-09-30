@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_classroom_card"
+    android:orientation="vertical">
+
+    <!-- Bagian atas: ikon, judul, dan tanggal -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="18dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="Ikon materi"
+            android:src="@drawable/ic_book_24"
+            app:tint="#1967D2" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtJudulMateri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Materi baru: Pertemuan 1: Android Studio"
+                android:textColor="#202124"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtTanggalMateri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="27 Agu"
+                android:textColor="#5F6368"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Garis pemisah seperti pada kartu Classroom -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CFD4DC" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="18dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="14dp"
+        android:text="Tambahkan komentar kelas"
+        android:textColor="#1967D2"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

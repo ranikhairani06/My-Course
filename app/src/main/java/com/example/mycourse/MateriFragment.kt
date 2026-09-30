@@ -1,59 +1,50 @@
 package com.example.mycourse
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class MateriFragment : Fragment(R.layout.fragment_materi) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MateriFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class MateriFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        val container = view.findViewById<LinearLayout>(R.id.materiContainer)
+
+        val daftarMateri = listOf(
+            Pair("Pertemuan 6: Style, Option Menu & Tabs Layout", "23 Sep"),
+            Pair("Pertemuan 5: UI Component", "17 Sep"),
+            Pair("Pertemuan 4: Activity & Intent", "9 Sep"),
+            Pair("Pertemuan 3: ConstraintLayout", "3 Sep"),
+            Pair("Pertemuan 3: RelativeLayout", "3 Sep"),
+            Pair("Pertemuan 2: Linear Layout", "27 Agu"),
+            Pair("Pertemuan 1: Android Studio", "27 Agu")
+        )
+
+        daftarMateri.forEach { (judul, tanggal) ->
+            val kartu = LayoutInflater.from(requireContext())
+                .inflate(R.layout.item_materi, container, false)
+
+            val txtJudul = kartu.findViewById<TextView>(R.id.txtJudulMateri)
+            val txtTanggal = kartu.findViewById<TextView>(R.id.txtTanggalMateri)
+
+            txtJudul.text = "Materi baru: $judul"
+            txtTanggal.text = tanggal
+
+            val jarak = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply {
+                bottomMargin = 12.dp()
+            }
+
+            container.addView(kartu, jarak)
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_materi, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MateriFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MateriFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+    private fun Int.dp(): Int =
+        (this * resources.displayMetrics.density).toInt()
 }
